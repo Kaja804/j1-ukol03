@@ -37,9 +37,12 @@ public class HlavniProgram {
         System.out.println(kajinPocitac);
         kajinPocitac.zapniSe();
         System.out.println(kajinPocitac);
-        kajinPocitac.vypniSe();
-        System.out.println(kajinPocitac);
-
+        kajinPocitac.vytvorSouborOVelikosti(20_000_000L);
+        System.out.println(kajinDisk);
+        kajinPocitac.vytvorSouborOVelikosti(279_000_000_000L);
+        kajinPocitac.vymazSouborOVelikosti(1_000_000_000L);
+        System.out.println(kajinDisk);
+        kajinPocitac.vymazSouborOVelikosti(1_000_000_000_000L);
 
     }
 

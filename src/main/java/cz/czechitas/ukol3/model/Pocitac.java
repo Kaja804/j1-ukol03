@@ -8,6 +8,8 @@ public class Pocitac {
     private Pamet ram;
     private Procesor cpu;
     private Disk pevnyDisk;
+    private long noveVyuziteMisto;
+
 
     public Pamet getRam() {
         return ram;
@@ -53,7 +55,7 @@ public class Pocitac {
         }
         if (jeZapnuty) {
             System.err.println("Počítač nelze znovu zapnout)");
-        }else {
+        } else {
             jeZapnuty = true;
             System.out.println("Počítač se zapnul");
         }
@@ -65,6 +67,35 @@ public class Pocitac {
         }
         jeZapnuty = false;
         System.out.println("Počítač se vypnul");
+    }
+
+    public void setNoveVyuziteMisto(Disk vyuziteMisto) {
+        this.noveVyuziteMisto = noveVyuziteMisto;
+    }
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (!jeZapnuty) {
+            System.err.println("Počítač je vypnutý, nelze pracovat se soubory");
+            return;
+        }
+        if (getPevnyDisk().getVyuziteMisto() + velikost >= getPevnyDisk().getKapacita()) {
+            System.err.println("Není dostatek místa na disku.");
+            return;
+        }
+        pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() + velikost);
+        System.out.println("Vytvořil se soubor o velikosti " + velikost + "B a vyuzité místo se zvětšilo");
+    }
+
+    public void vymazSouborOVelikosti(long velikost) {
+        if (!jeZapnuty) {
+            System.err.println("Počítač je vypnutý, nelze pracovat se soubory");
+            return;
+        }
+        if (getPevnyDisk().getVyuziteMisto() - velikost <= 0 || velikost > getPevnyDisk().getVyuziteMisto()) {
+            System.err.println("Soubor této velikosti nelze smazat.");
+            return;
+        }
+        pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() - velikost);
+        System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na disku se snížilo.");
     }
 
     @Override

@@ -8,9 +8,7 @@ public class Pocitac {
     private Pamet ram;
     private Procesor cpu;
     private Disk pevnyDisk;
-    private long noveVyuziteMisto;
-
-
+    
     public Pamet getRam() {
         return ram;
     }
@@ -69,9 +67,7 @@ public class Pocitac {
         System.out.println("Počítač se vypnul");
     }
 
-    public void setNoveVyuziteMisto(Disk vyuziteMisto) {
-        this.noveVyuziteMisto = noveVyuziteMisto;
-    }
+
     public void vytvorSouborOVelikosti(long velikost) {
         if (!jeZapnuty) {
             System.err.println("Počítač je vypnutý, nelze pracovat se soubory");

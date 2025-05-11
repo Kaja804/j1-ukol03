@@ -1,5 +1,7 @@
 package cz.czechitas.ukol3.model;
 
+import cz.czechitas.ukol3.HlavniProgram;
+
 public class Disk {
 
     private long kapacita;                      // v bajtech

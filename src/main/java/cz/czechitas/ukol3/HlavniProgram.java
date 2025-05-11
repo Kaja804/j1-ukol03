@@ -31,18 +31,29 @@ public class HlavniProgram {
         kajinProcesor.setVyrobce("Intel");
         kajinPocitac.setCpu(kajinProcesor);
 
+        Disk kajinDisk2 = new Disk();
+        kajinDisk2.setKapacita(998_000_000_000L);
+        kajinDisk2.setVyuziteMisto(9_000_000_000L);
+        kajinPocitac.setDruhyDisk(kajinDisk2);
+
         System.out.println(kajinProcesor);
         System.out.println(kajinDisk);
+        System.out.println(kajinDisk2);
         System.out.println(kajinaPamet);
         System.out.println(kajinPocitac);
         kajinPocitac.zapniSe();
         System.out.println(kajinPocitac);
         kajinPocitac.vytvorSouborOVelikosti(20_000_000L);
         System.out.println(kajinDisk);
-        kajinPocitac.vytvorSouborOVelikosti(279_000_000_000L);
+        kajinPocitac.vytvorSouborOVelikosti(979_000_000_000L);
         kajinPocitac.vymazSouborOVelikosti(1_000_000_000L);
         System.out.println(kajinDisk);
-        kajinPocitac.vymazSouborOVelikosti(1_000_000_000_000L);
+        System.out.println(kajinDisk2);
+        kajinPocitac.vymazSouborOVelikosti(950_000_000_000L);
+        kajinPocitac.vymazSouborOVelikosti(1_000_000_000_001L);
+        kajinPocitac.vytvorSouborOVelikosti(1_000_000_000_000L);
+        System.out.println("Pevný disk: " + kajinDisk);
+        System.out.println("Druhý disk: " + kajinDisk2);
 
     }
 

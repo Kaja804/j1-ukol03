@@ -8,7 +8,8 @@ public class Pocitac {
     private Pamet ram;
     private Procesor cpu;
     private Disk pevnyDisk;
-    
+    private Disk druhyDisk;
+
     public Pamet getRam() {
         return ram;
     }
@@ -31,6 +32,14 @@ public class Pocitac {
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
+    }
+
+    public Disk getDruhyDisk() {
+        return druhyDisk;
+    }
+
+    public void setDruhyDisk(Disk druhyDisk) {
+        this.druhyDisk = druhyDisk;
     }
 
     public boolean isJeZapnuty() {
@@ -74,11 +83,18 @@ public class Pocitac {
             return;
         }
         if (getPevnyDisk().getVyuziteMisto() + velikost >= getPevnyDisk().getKapacita()) {
-            System.err.println("Není dostatek místa na disku.");
+        } else {
+            pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() + velikost);
+            System.out.println("Vytvořil se soubor o velikosti " + velikost + "B a vyuzité místo pevného disku se zvětšilo na " + getPevnyDisk().getVyuziteMisto() + "B.");
             return;
         }
-        pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() + velikost);
-        System.out.println("Vytvořil se soubor o velikosti " + velikost + "B a vyuzité místo se zvětšilo");
+        if (getDruhyDisk().getVyuziteMisto() + velikost >= getDruhyDisk().getKapacita()) {
+            System.err.println("Pro soubor velikosti " + velikost + "B není dostatek místa na disku.");
+        } else {
+            druhyDisk.setVyuziteMisto(getDruhyDisk().getVyuziteMisto() + velikost);
+            System.out.println("Vytvořil se soubor o velikosti " + velikost + "B a vyuzité místo druhého disku se zvětšilo na " + getDruhyDisk().getVyuziteMisto() + "B.");
+        }
+
     }
 
     public void vymazSouborOVelikosti(long velikost) {
@@ -87,11 +103,17 @@ public class Pocitac {
             return;
         }
         if (getPevnyDisk().getVyuziteMisto() - velikost <= 0 || velikost > getPevnyDisk().getVyuziteMisto()) {
-            System.err.println("Soubor této velikosti nelze smazat.");
+        } else {
+            pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() - velikost);
+            System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na pevném disku se snížilo na " + getPevnyDisk().getVyuziteMisto() + "B.");
             return;
         }
-        pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() - velikost);
-        System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na disku se snížilo.");
+        if (getDruhyDisk().getVyuziteMisto() - velikost <= 0 || velikost > getDruhyDisk().getVyuziteMisto()) {
+            System.err.println("Soubor velikosti " + velikost + "B nelze smazat.");
+        } else {
+            druhyDisk.setVyuziteMisto(getDruhyDisk().getVyuziteMisto() - velikost);
+            System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na druhém disku se snížilo na " + getDruhyDisk().getVyuziteMisto() + "B.");
+        }
     }
 
     @Override

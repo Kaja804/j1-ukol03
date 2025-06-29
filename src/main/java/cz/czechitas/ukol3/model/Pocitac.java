@@ -82,13 +82,13 @@ public class Pocitac {
             System.err.println("Počítač je vypnutý, nelze pracovat se soubory");
             return;
         }
-        if (getPevnyDisk().getVyuziteMisto() + velikost >= getPevnyDisk().getKapacita()) {
+        if (getPevnyDisk().getVyuziteMisto() + velikost > getPevnyDisk().getKapacita()) {
         } else {
             pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() + velikost);
             System.out.println("Vytvořil se soubor o velikosti " + velikost + "B a vyuzité místo pevného disku se zvětšilo na " + getPevnyDisk().getVyuziteMisto() + "B.");
             return;
         }
-        if (getDruhyDisk().getVyuziteMisto() + velikost >= getDruhyDisk().getKapacita()) {
+        if (getDruhyDisk().getVyuziteMisto() + velikost > getDruhyDisk().getKapacita()) {
             System.err.println("Pro soubor velikosti " + velikost + "B není dostatek místa na disku.");
         } else {
             druhyDisk.setVyuziteMisto(getDruhyDisk().getVyuziteMisto() + velikost);
@@ -102,17 +102,16 @@ public class Pocitac {
             System.err.println("Počítač je vypnutý, nelze pracovat se soubory");
             return;
         }
-        if (getPevnyDisk().getVyuziteMisto() - velikost <= 0 || velikost > getPevnyDisk().getVyuziteMisto()) {
-        } else {
+        if (getPevnyDisk().getVyuziteMisto() - velikost >= 0 && velikost <= getPevnyDisk().getVyuziteMisto()) {
             pevnyDisk.setVyuziteMisto(getPevnyDisk().getVyuziteMisto() - velikost);
             System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na pevném disku se snížilo na " + getPevnyDisk().getVyuziteMisto() + "B.");
             return;
         }
-        if (getDruhyDisk().getVyuziteMisto() - velikost <= 0 || velikost > getDruhyDisk().getVyuziteMisto()) {
-            System.err.println("Soubor velikosti " + velikost + "B nelze smazat.");
-        } else {
+        if (getDruhyDisk().getVyuziteMisto() - velikost >= 0 && velikost <= getDruhyDisk().getVyuziteMisto()) {
             druhyDisk.setVyuziteMisto(getDruhyDisk().getVyuziteMisto() - velikost);
             System.out.println("Vymazal se soubor o velikosti " + velikost + "B a využité místo na druhém disku se snížilo na " + getDruhyDisk().getVyuziteMisto() + "B.");
+        } else {
+            System.err.println("Soubor velikosti " + velikost + "B nelze smazat.");
         }
     }
 

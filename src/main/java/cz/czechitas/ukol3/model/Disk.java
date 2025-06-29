@@ -12,7 +12,7 @@ public class Disk {
     }
 
     public void setKapacita(long kapacita) {
-        if (kapacita < 1_000_000_000L) {
+        if (kapacita < 10) {
             System.err.println("Disk je přiliš malý");
             return;
         }
@@ -24,7 +24,7 @@ public class Disk {
     }
 
     public void setVyuziteMisto(long vyuziteMisto) {
-        if (vyuziteMisto >= kapacita || vyuziteMisto < 0L) {
+        if (vyuziteMisto > kapacita || vyuziteMisto < 0L) {
             System.err.println("Nesprávně zadaná hodnota.");
         }
         this.vyuziteMisto = vyuziteMisto;

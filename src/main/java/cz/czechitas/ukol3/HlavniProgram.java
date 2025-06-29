@@ -17,8 +17,8 @@ public class HlavniProgram {
 
 
         Disk kajinDisk = new Disk();
-        kajinDisk.setKapacita(477_000_000_000L);
-        kajinDisk.setVyuziteMisto(199_000_000_000L);
+        kajinDisk.setKapacita(10);
+        kajinDisk.setVyuziteMisto(0);
         kajinPocitac.setPevnyDisk(kajinDisk);
 
 
@@ -32,8 +32,8 @@ public class HlavniProgram {
         kajinPocitac.setCpu(kajinProcesor);
 
         Disk kajinDisk2 = new Disk();
-        kajinDisk2.setKapacita(998_000_000_000L);
-        kajinDisk2.setVyuziteMisto(9_000_000_000L);
+        kajinDisk2.setKapacita(10);
+        kajinDisk2.setVyuziteMisto(0);
         kajinPocitac.setDruhyDisk(kajinDisk2);
 
         System.out.println(kajinProcesor);
@@ -43,15 +43,13 @@ public class HlavniProgram {
         System.out.println(kajinPocitac);
         kajinPocitac.zapniSe();
         System.out.println(kajinPocitac);
-        kajinPocitac.vytvorSouborOVelikosti(20_000_000L);
+        kajinPocitac.vytvorSouborOVelikosti(5);
         System.out.println(kajinDisk);
-        kajinPocitac.vytvorSouborOVelikosti(979_000_000_000L);
-        kajinPocitac.vymazSouborOVelikosti(1_000_000_000L);
+        kajinPocitac.vytvorSouborOVelikosti(10);
         System.out.println(kajinDisk);
         System.out.println(kajinDisk2);
-        kajinPocitac.vymazSouborOVelikosti(950_000_000_000L);
-        kajinPocitac.vymazSouborOVelikosti(1_000_000_000_001L);
-        kajinPocitac.vytvorSouborOVelikosti(1_000_000_000_000L);
+        kajinPocitac.vymazSouborOVelikosti(5);
+        kajinPocitac.vymazSouborOVelikosti(10);
         System.out.println("Pevný disk: " + kajinDisk);
         System.out.println("Druhý disk: " + kajinDisk2);
 
